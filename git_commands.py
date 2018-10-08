@@ -1,6 +1,54 @@
 import sys
 import os
 
+def push():
+  print 'Enter branch name'
+  branch = raw_input()
+  os.system('git push origin '+branch)
+
+def pull():
+  print 'Enter branch name'
+  branch = raw_input()
+  os.system('git pull origin '+branch)
+
+def checkout():
+  print 'Enter branch name to be checkout'
+  checkout = raw_input()
+  os.system('git checkout '+checkout)
+
+def status():
+  os.system('git status')
+
+def new_branch():
+  print 'Enter branch name'
+  new_branch = raw_input()
+  os.system('git checkout -b '+new_branch)
+
+def add_files():
+  os.system('git add .')
+
+def new_commit():
+  print 'Enter commit message'
+  message = raw_input()
+  os.system('git commit -m '+message)
+
+def rename_branch():
+  print 'Enter new branch name'
+  new = raw_input()
+  os.system('git branch -m '+new)
+
+def delete_branch():
+  print 'Please make sure you are not on the same branch which needs to be deleted'
+  print 'Enter branch to be deleted'
+  delete = raw_input()
+  os.system('git branch -D '+delete)
+
+def list_branches():
+  os.system('git branch')
+
+def exit():
+  sys.exit() 
+
 while True:
   print '1 Push a branch'
   print '2 Pull a branch'
@@ -17,41 +65,26 @@ while True:
   cmd = raw_input()
 
   if cmd == '1':
-    print 'Enter branch name'
-    branch = raw_input()
-    os.system('git push origin '+branch)
+    push()
   elif cmd == '2':
-    print 'Enter branch name'
-    branch = raw_input()
-    os.system('git pull origin '+branch)
+    pull()
   elif cmd == '3':
-    print 'Enter branch name to be checkout'
-    checkout = raw_input()
-    os.system('git checkout '+checkout)
+    checkout()
   elif cmd == '4':
-    os.system('git status')
+   status()
   elif cmd == '5':
-    print 'Enter branch name'
-    new_branch = raw_input()
-    os.system('git checkout -b '+new_branch)
+    new_branch()
   elif cmd == '6':
-    os.system('git add .')
+    add_files()
   elif cmd == '7':
-    print 'Enter commit message'
-    message = raw_input()
-    os.system('git commit -m '+message)
+    new_commit()
   elif cmd == '8':
-    print 'Enter new branch name'
-    new = raw_input()
-    os.system('git branch -m '+new)
+    rename_branch()
   elif cmd == '9':
-    print 'Please make sure you are not on the same branch which needs to be deleted'
-    print 'Enter branch to be deleted'
-    delete = raw_input()
-    os.system('git branch -D '+delete)
+    delete_branch()
   elif cmd == '10':
-    os.system('git branch')
+    list_branches()
   elif cmd == '11':
-    sys.exit() 
+    exit()
   else:
     print 'Something Went Wrong!'
